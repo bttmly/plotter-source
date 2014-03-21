@@ -1,0 +1,29 @@
+.switch-component {
+  font-size: 75%;
+  font-weight: bold; }
+  .switch-component .switch__description {
+    text-align: center;
+    margin-bottom: 0.5em; }
+  .switch-component .switch__option {
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    border: 1px solid #2c3e50;
+    color: #2c3e50; }
+    .switch-component .switch__option:last-of-type {
+      border-left: none; }
+  .switch-component .switch__input {
+    display: none; }
+  .switch-component .switch__label {
+    text-align: center;
+    display: block;
+    margin: 0;
+    padding: 0.5em;
+    cursor: pointer; }
+  .switch-component .switch__input:checked + .switch__label {
+    color: white;
+    background: #2c3e50;
+    border-color: #2c3e50;
+    cursor: default; }
+  .switch-component .switch__input:not(:checked) + .switch__label {
+    opacity: 0.75; }

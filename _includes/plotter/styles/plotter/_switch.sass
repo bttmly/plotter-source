@@ -1,0 +1,34 @@
+@import "colors"
+
+=switch-component-mi($base-color, $active-color)
+  .switch__description
+    text-align: center
+    margin-bottom: .5em
+  .switch__option
+    font-weight: bold
+    float: left
+    width: 50%
+    border: 1px solid $base-color
+    color: $base-color
+    &:last-of-type
+      border-left: none
+  .switch__input
+    display: none
+  .switch__label
+    text-align: center
+    display: block
+    margin: 0
+    padding: .5em
+    cursor: pointer
+  .switch__input:checked + .switch__label
+    color: white
+    background: $active-color
+    border-color: $active-color
+    cursor: default
+
+.switch-component
+  +switch-component-mi($color-theme-base, $color-theme-base)
+  font-size: 75%
+  font-weight: bold
+  .switch__input:not(:checked) + .switch__label
+    opacity: .75

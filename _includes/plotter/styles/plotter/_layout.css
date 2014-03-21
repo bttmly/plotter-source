@@ -1,0 +1,13 @@
+.page-wrapper {
+  display: flex; }
+
+.control-pane {
+  max-height: 100vh;
+  overflow-y: scroll;
+  width: 16em;
+  padding: 1em; }
+
+.chart-pane {
+  background: #eeeeee;
+  height: 100vh;
+  flex: 1; }

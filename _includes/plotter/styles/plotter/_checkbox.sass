@@ -1,0 +1,58 @@
+@import "colors"
+
+.check-group
+  .check__label
+    margin-bottom: 0
+
+%check-component-ph
+  display: block
+  
+  .check__input
+    display: none
+
+  .check__label
+    display: block
+    padding: .5em
+    position: relative
+    color: #fff
+    cursor: pointer
+    user-select: none
+    &:before
+      content: ""
+      position: absolute
+      right: .5em
+      width: 1.25rem
+      height: 1.25rem
+      background: white
+    &:after
+      content: ""
+      position: absolute
+      top: .75rem
+      right: .75rem
+      width: .75rem
+      height: .75rem
+
+=check-component-mi($component-color)
+  
+  @extend %check-component-ph
+
+  .check__input:not(:checked) + .check__label
+    background: rgba($component-color, .5)
+
+  .check__input:not(:checked) + .check__label:hover
+    background: rgba($component-color, .67)
+
+  .check__input:checked + .check__label
+    background: $component-color
+
+  .check__input:checked + .check__label:after
+    background: $component-color
+
+
+@each $pair in $color-list
+  .check-component-#{ nth( $pair, 1) }
+    +check-component-mi( nth( $pair, 2) )
+
+.check-component-base
+  +check-component-mi( $color-theme-base )
+

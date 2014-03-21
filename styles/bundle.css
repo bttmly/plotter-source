@@ -1,0 +1,16 @@
+---
+---
+/* normalize.css */
+{% include plotter/styles/normalize.min.css %}
+
+/* chosen.css */
+{% include vendor/chosen/public/chosen.min.css %}
+
+/* styntax.css */
+{% include plotter/styles/syntax.css %}
+
+/* app styles */
+{% include plotter/styles/styles.css %}
+
+
+

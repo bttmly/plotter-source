@@ -1,0 +1,91 @@
+.check-group .check__label {
+  margin-bottom: 0; }
+
+.check-component-blue, .check-component-green, .check-component-yellow, .check-component-orange, .check-component-red, .check-component-purple, .check-component-base {
+  display: block; }
+  .check-component-blue .check__input, .check-component-green .check__input, .check-component-yellow .check__input, .check-component-orange .check__input, .check-component-red .check__input, .check-component-purple .check__input, .check-component-base .check__input {
+    display: none; }
+  .check-component-blue .check__label, .check-component-green .check__label, .check-component-yellow .check__label, .check-component-orange .check__label, .check-component-red .check__label, .check-component-purple .check__label, .check-component-base .check__label {
+    display: block;
+    padding: 0.5em;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    user-select: none; }
+    .check-component-blue .check__label:before, .check-component-green .check__label:before, .check-component-yellow .check__label:before, .check-component-orange .check__label:before, .check-component-red .check__label:before, .check-component-purple .check__label:before, .check-component-base .check__label:before {
+      content: "";
+      position: absolute;
+      right: 0.5em;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: white; }
+    .check-component-blue .check__label:after, .check-component-green .check__label:after, .check-component-yellow .check__label:after, .check-component-orange .check__label:after, .check-component-red .check__label:after, .check-component-purple .check__label:after, .check-component-base .check__label:after {
+      content: "";
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem; }
+
+.check-component-blue .check__input:not(:checked) + .check__label {
+  background: rgba(52, 152, 219, 0.5); }
+.check-component-blue .check__input:not(:checked) + .check__label:hover {
+  background: rgba(52, 152, 219, 0.67); }
+.check-component-blue .check__input:checked + .check__label {
+  background: #3498db; }
+.check-component-blue .check__input:checked + .check__label:after {
+  background: #3498db; }
+
+.check-component-green .check__input:not(:checked) + .check__label {
+  background: rgba(46, 204, 113, 0.5); }
+.check-component-green .check__input:not(:checked) + .check__label:hover {
+  background: rgba(46, 204, 113, 0.67); }
+.check-component-green .check__input:checked + .check__label {
+  background: #2ecc71; }
+.check-component-green .check__input:checked + .check__label:after {
+  background: #2ecc71; }
+
+.check-component-yellow .check__input:not(:checked) + .check__label {
+  background: rgba(241, 196, 15, 0.5); }
+.check-component-yellow .check__input:not(:checked) + .check__label:hover {
+  background: rgba(241, 196, 15, 0.67); }
+.check-component-yellow .check__input:checked + .check__label {
+  background: #f1c40f; }
+.check-component-yellow .check__input:checked + .check__label:after {
+  background: #f1c40f; }
+
+.check-component-orange .check__input:not(:checked) + .check__label {
+  background: rgba(230, 126, 34, 0.5); }
+.check-component-orange .check__input:not(:checked) + .check__label:hover {
+  background: rgba(230, 126, 34, 0.67); }
+.check-component-orange .check__input:checked + .check__label {
+  background: #e67e22; }
+.check-component-orange .check__input:checked + .check__label:after {
+  background: #e67e22; }
+
+.check-component-red .check__input:not(:checked) + .check__label {
+  background: rgba(231, 76, 60, 0.5); }
+.check-component-red .check__input:not(:checked) + .check__label:hover {
+  background: rgba(231, 76, 60, 0.67); }
+.check-component-red .check__input:checked + .check__label {
+  background: #e74c3c; }
+.check-component-red .check__input:checked + .check__label:after {
+  background: #e74c3c; }
+
+.check-component-purple .check__input:not(:checked) + .check__label {
+  background: rgba(155, 89, 182, 0.5); }
+.check-component-purple .check__input:not(:checked) + .check__label:hover {
+  background: rgba(155, 89, 182, 0.67); }
+.check-component-purple .check__input:checked + .check__label {
+  background: #9b59b6; }
+.check-component-purple .check__input:checked + .check__label:after {
+  background: #9b59b6; }
+
+.check-component-base .check__input:not(:checked) + .check__label {
+  background: rgba(44, 62, 80, 0.5); }
+.check-component-base .check__input:not(:checked) + .check__label:hover {
+  background: rgba(44, 62, 80, 0.67); }
+.check-component-base .check__input:checked + .check__label {
+  background: #2c3e50; }
+.check-component-base .check__input:checked + .check__label:after {
+  background: #2c3e50; }
