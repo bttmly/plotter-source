@@ -1,6 +1,0 @@
-[submodule "_includes/submodules/controls.js"]
-	path = _includes/submodules/controls.js
-	url = https://github.com/nickb1080/controls.js.git
-[submodule "_includes/submodules/collection.js"]
-	path = _includes/submodules/collection.js
-	url = https://github.com/nickb1080/collection.js.git
