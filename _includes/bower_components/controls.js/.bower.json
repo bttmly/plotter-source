@@ -1,0 +1,38 @@
+{
+  "name": "controls.js",
+  "main": "controls.js",
+  "homepage": "https://github.com/nickb1080/controls.js",
+  "authors": [
+    "Nick Bottomley <nhbottomley@gmail.com>"
+  ],
+  "description": "Manipulate control elements w/ JS",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "input",
+    "form",
+    "control"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "7a4b39aa91",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7a4b39aa91be33714187c13b0ae898addd3ec59b"
+  },
+  "_source": "https://github.com/nickb1080/controls.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/nickb1080/controls.js.git",
+  "_direct": true
+}

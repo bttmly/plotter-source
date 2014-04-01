@@ -11,11 +11,11 @@
 
 // COLLECTION
 //
-{% include submodules/collection.js/collection.js %}
+{% include bower_components/collection.js/collection.js %}
 
 // CONTROLS
 //
-{% include submodules/controls.js/controls.js %}
+{% include bower_components/controls.js/controls.js %}
 
 // UNDERDSCORE STRING
 //
