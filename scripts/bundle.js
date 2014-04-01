@@ -3,23 +3,33 @@
 
 // JQUERY
 //
-{% include vendor/jquery/jquery-2.1.0.min.js %}
+{% include bower_components/jquery/dist/jquery.min.js %}
 
 // LO-DASH
 //
-{% include vendor/lodash/lodash.min.js %}
+{% include bower_components/lodash/dist/lodash.min.js %}
+
+// COLLECTION
+//
+{% include submodules/collection.js/collection.js %}
+
+// CONTROLS
+//
+{% include submodules/controls.js/controls.js %}
 
 // UNDERDSCORE STRING
 //
-{% include vendor/underscore-string/underscore-string.min.js %}
+{% include bower_components/underscore.string/dist/underscore.string.min.js %}
 
 // COLOR.JS
 //
-{% include vendor/colorjs/color.js %}
+//
+{% include bower_components/color-js/color.js %}
+var Color = net.brehaut.Color;
 
 // D3
 // 
-{% include vendor/d3/d3.min.js %}
+{% include bower_components/d3/d3.min.js %}
 
 // CHOSEN
 //
@@ -28,10 +38,6 @@
 // PUBSUB
 //
 {% include vendor/pubsub/pubsub.js %}
-
-// COLLECTION
-//
-{% include plotter/scripts/collection.js %}
 
 // PLOTTER
 //

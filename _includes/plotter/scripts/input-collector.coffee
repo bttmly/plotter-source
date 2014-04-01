@@ -1,35 +1,21 @@
 # this is the only object that should be collecting data from DOM elements.
 Plotter.InputCollector = do ->
 
-  valid = true
+  $$ = Controls
 
-  $cache = do ->
-    seasons : $( "#input-group--seasons .check__input" )
-    positions: $( "#input-group--positions .check__input" )
-    variables: $( "#input-group--variables .input-select" )
-    players: $( "#input-group--players .input-select")
-    ppSwitch: $( "#input-group--pp-switch .switch-input" )
-    gsSwitch: $( "#input-group--gs-switch .switch-input" )
+  appControls = []
 
-  inputValues =
-    seasons : []
-    position: []
-    variables: []
-    players: []
-    ppSwitch: false
-    ppSwitch: false
+  appControls.push playerPositionSwitch = $$( "#input-group--pp-switch" )
+  appControls.push gameSeasonSwitch = $$( "#input-group--gs-switch" )
 
-  update = ->
-    return this
+  appControls.push positions = $$( "#input-group--positions" )
+  appControls.push players = $$( "#input-group--players" )
 
-  validate = ->
-    # should throw messages to some event handling system when something fails validation
+  appControls.push variables = $$( "#input-group--variables" )
+  appControls.push seasons = $$( "#input-group--seasons" )
 
-  values = ->
-    return this.inputValues
+  appControls.push renderButton = $$( "#control-button--render" )
+  appControls.push highlightButton = $$( "#control-button--highlight" )
 
-  return {
-    update : update
-    validate : validate
-    values : values
-  }
+  appControls = $$( appControls )
+  

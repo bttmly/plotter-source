@@ -25,6 +25,8 @@
   ],
   "dependencies": {
     "lodash": "~2.4.1",
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "d3": "~3.4.4",
+    "underscore.string": "~2.3.3"
   }
 }
