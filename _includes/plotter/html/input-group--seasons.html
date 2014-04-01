@@ -4,26 +4,14 @@
   <span class="input-group__toggle"></span>
   
   <div class="input-group__content check-group">
-    <div class="check-component-base">
-      <input type="checkbox" id="check-2012" class="check__input"/>
-      <label for="check-2012" class="check__label">2012</label>
-    </div>
-    <div class="check-component-base">
-      <input type="checkbox" id="check-2011" class="check__input"/>
-      <label for="check-2011" class="check__label">2011</label>
-    </div>
-    <div class="check-component-base">
-      <input type="checkbox" id="check-2010" class="check__input"/>
-      <label for="check-2010" class="check__label">2010</label>
-    </div>
-    <div class="check-component-base">
-      <input type="checkbox" id="check-2009" class="check__input"/>
-      <label for="check-2009" class="check__label">2009</label>
-    </div>
-    <div class="check-component-base">
-      <input type="checkbox" id="check-2008" class="check__input"/>
-      <label for="check-2008" class="check__label">2008</label>
-    </div>
+
+    {% for season in site.data.seasons %}
+      <div class="check-component-base">
+        <input type="checkbox" id="check-{{ season }}" class="check__input"/>
+        <label for="check-{{ season }}" class="check__label">{{ season }}</label>
+      </div>
+    {% endfor %}
+
   </div>
   
 </div>

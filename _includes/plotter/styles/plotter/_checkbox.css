@@ -7,7 +7,7 @@
     display: none; }
   .check-component-blue .check__label, .check-component-green .check__label, .check-component-yellow .check__label, .check-component-orange .check__label, .check-component-red .check__label, .check-component-purple .check__label, .check-component-base .check__label {
     display: block;
-    padding: 0.5em;
+    padding: 0.5em 1rem;
     position: relative;
     color: white;
     cursor: pointer;

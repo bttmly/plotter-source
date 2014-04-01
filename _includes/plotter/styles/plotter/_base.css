@@ -1,0 +1,41 @@
+body {
+  color: #2c3e50;
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+
+h1, h2, h3, h4, h5, h6, p, label, input, select {
+  color: #2c3e50;
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+
+.input-group {
+  margin-bottom: 2rem;
+  position: relative; }
+
+.input-group__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem; }
+
+.input-group__toggle {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  cursor: pointer; }
+  .input-group__toggle:after, .input-group__toggle:before {
+    content: "";
+    background: #2ecc71;
+    width: 1.5rem;
+    height: 0.375rem;
+    position: absolute;
+    top: 0.5rem;
+    transition: all 0.25s ease-in-out; }
+  .input-group__toggle:before {
+    -webkit-transform: rotate(0);
+    transform: rotate(0); }
+
+.input-group--collapsed .input-group__toggle:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg); }

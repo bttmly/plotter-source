@@ -2,7 +2,7 @@
 (function() {
   Plotter.settings = {
     url: {
-      dataset: "data/dataset.08-12.json",
+      dataset: "data/clean-dataset.08-12.json",
       names: "data/names.08-12.json"
     },
     storageKeys: {
@@ -54,7 +54,7 @@
       "Pass Completions": "PassComp",
       "Pass Attempts": "PassAtt",
       "Pass Yards": "PassYds",
-      "Pass Touchdowns": "PassTD",
+      "Pass TD": "PassTD",
       "Interceptions": "PassINT",
       "Rushing Attempts": "RushAtt",
       "Rushing Yards": "RushYds",

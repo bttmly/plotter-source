@@ -1,11 +1,13 @@
-@import compass/css3/box-sizing
-@import compass/css3/images
-@import compass/css3/user-interface
+// @import compass/css3/box-sizing
+// @import compass/css3/images
+// @import compass/css3/user-interface
+
+@import "../../../plotter/styles/plotter/colors"
+
+$bg-color: #f5f5f5
 
 $chosen-sprite: image-url("chosen-sprite.png") !default
 $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
-
-
 
 @font-face
   font-family: 'chosen-js-icons'
@@ -53,13 +55,8 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
   font-family: 'chosen-js-icons'
   content: "\e000"
 
-.chosen-container-active.chosen-single-with-drop .chosen-single div b:after
-  position: absolute
-  right: 0
-  top: 0
-  display: block
-  content: "\e000"
-  font-size: .75rem
+.chosen-with-drop .chosen-single div b:after
+  content: "\e000" !important
 
 /* @group Base */
 .chosen-container
@@ -82,8 +79,8 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
     width: 100%
     border: 1px solid #aaa
     border-top: 0
-    background: #fff
-    box-shadow: 0 4px 5px rgba(black, 0.15)
+    background: $bg-color
+    // box-shadow: 0 4px 5px rgba(black, 0.15)
   &.chosen-with-drop .chosen-drop
     left: 0
   a
@@ -100,11 +97,11 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
     padding: 0 0 0 .5em
     height: 1.75em
     border: 1px solid #aaa
-    border-radius: 5px
-    background-color: #fff
+    // border-radius: 5px
+    background-color: white
     // +background(linear-gradient(top, white 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%))
     background-clip: padding-box
-    box-shadow: 0 0 3px white inset, 0 1px 1px rgba(black, 0.1)
+    // box-shadow: 0 0 3px white inset, 0 1px 1px rgba(black, 0.1)
     color: #444
     text-decoration: none
     white-space: nowrap
@@ -160,17 +157,17 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
       padding: .25em 1em .25em .25em
       width: 100%
       height: auto
-      outline: 0
-      border: 1px solid #aaa
+      // outline: 0
+      // border: 1px solid #aaa
       // background: white $chosen-sprite no-repeat 100% -20px
       // +background($chosen-sprite no-repeat 100% -20px)
       font-size: 1em
-      font-family: sans-serif
+      // font-family: sans-serif
       line-height: normal
       border-radius: 0
   .chosen-drop
     margin-top: -1px
-    border-radius: 0 0 4px 4px
+    // border-radius: 0 0 4px 4px
     background-clip: padding-box
   &.chosen-container-single-nosearch .chosen-search
     position: absolute
@@ -204,7 +201,7 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
     &.highlighted
       background-color: #3875d7
       // +background-image(linear-gradient(#3875d7 20%, #2a62bc 90%))
-      background: blue
+      background: $color-theme-base
       color: #fff
     &.no-results
       display: list-item
@@ -233,7 +230,7 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
     height: auto !important
     height: 1%
     border: 1px solid #aaa
-    background-color: #fff
+    background-color: $bg-color
     // +background-image(linear-gradient(#eeeeee 1%, white 15%))
     cursor: text
   .chosen-choices li
@@ -241,21 +238,27 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
     list-style: none
     &.search-field
       margin: 0
-      padding: 0
+      padding: 0 .25rem .25rem 0
       white-space: nowrap
       input[type="text"]
         margin: 1px 0
         padding: .125em .375em
-        height: 1.25em
-        outline: 0
-        border: 0 !important
-        background: transparent !important
-        box-shadow: none
+        height: 1.25em        
+        // outline: 0
+        // border: 0 !important
+        // background: transparent !important
+        // box-shadow: none
         color: #666
         font-size: 100%
-        font-family: sans-serif
+        // font-family: sans-serif
         line-height: normal
         border-radius: 0
+        &,
+        &:focus
+          border: none
+          outline: none
+          background: transparent
+          box-shadow: none
       .default
         color: #999
     &.search-choice
@@ -263,11 +266,11 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
       margin: 0 .25em .25em 0
       padding: .5em 1.5em .5em .5em
       border: 1px solid #aaa
-      border-radius: 3px
+      // border-radius: 3px
       background-color: #e4e4e4
       // +background-image(linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%))
       background-clip: padding-box
-      box-shadow: 0 0 2px white inset, 0 1px 0 rgba(black, 0.05)
+      // box-shadow: 0 0 2px white inset, 0 1px 0 rgba(black, 0.05)
       color: #333
       line-height: 13px
       cursor: default
@@ -283,6 +286,8 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
         // font-size: 1px
         &:hover
           background-position: -42px -10px
+    &.search-choice + .search-field
+      padding-top: .125em
     &.search-choice-disabled
       padding-right: 5px
       border: 1px solid #ccc
@@ -306,25 +311,27 @@ $chosen-sprite-retina: image-url("chosen-sprite@2x.png") !default
 /* @group Active */
 .chosen-container-active
   .chosen-single
-    border: 1px solid #5897fb
-    box-shadow: 0 0 5px rgba(black, 0.3)
+    border: 1px solid $color-theme-base
+    // box-shadow: 0 0 5px rgba(black, 0.3)
   &.chosen-with-drop
+    background: $bg-color
     .chosen-single
       border: 1px solid #aaa
       -moz-border-radius-bottomright: 0
       border-bottom-right-radius: 0
       -moz-border-radius-bottomleft: 0
       border-bottom-left-radius: 0
+      background: $bg-color
       // +background-image(linear-gradient(#eeeeee 20%, white 80%))
-      box-shadow: 0 1px 0 #fff inset
+      // box-shadow: 0 1px 0 #fff inset
     .chosen-single div
       border-left: none
       background: transparent
       b
         background-position: -18px 2px
   .chosen-choices
-    border: 1px solid #5897fb
-    box-shadow: 0 0 5px rgba(black, 0.3)
+    border: 1px solid $color-theme-base
+    // box-shadow: 0 0 5px rgba(black, 0.3)
     li.search-field input[type="text"]
       color: #111 !important
 

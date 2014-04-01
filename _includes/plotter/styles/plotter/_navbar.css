@@ -1,0 +1,51 @@
+.menu-toggle {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 30px;
+  margin: 0;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer; }
+  .menu-toggle span {
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+    -webkit-transition-duration: 0s;
+    -webkit-transition-delay: 0.2s;
+    width: 2rem;
+    height: 6px;
+    background-color: #2c3e50;
+    display: block; }
+    .menu-toggle span:before, .menu-toggle span:after {
+      position: absolute;
+      content: ""; }
+    .menu-toggle span:before, .menu-toggle span:after {
+      width: 2rem;
+      height: 6px;
+      background-color: #2c3e50;
+      display: block; }
+    .menu-toggle span:before {
+      margin-top: -12px; }
+    .menu-toggle span:after {
+      margin-top: 12px; }
+  .menu-toggle.menu-toggle--x span {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition-delay: 0.2s; }
+  .menu-toggle span:before {
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-delay: 0.2s, 0; }
+  .menu-toggle.menu-toggle--x span:before {
+    margin-top: 0;
+    -webkit-transform: rotate(45deg);
+    -webkit-transition-delay: 0, 0.2s; }
+  .menu-toggle span:after {
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-delay: 0.2s, 0; }
+  .menu-toggle.menu-toggle--x span:after {
+    margin-top: 0;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transition-delay: 0, 0.2s; }

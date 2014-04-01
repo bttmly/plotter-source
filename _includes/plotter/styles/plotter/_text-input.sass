@@ -1,0 +1,16 @@
+@import "colors"
+@import "../bourbon/bourbon"
+
+// !important bc of overspecified Chosen selectors. Urgh.
+#{$all-text-inputs}
+  font-family: inherit
+  outline: .5rem solid transparent
+  border: 1px solid opacify($color-theme-base, .5)
+  transition: border-color .25s ease-in-out, outline .25s ease-in-out
+  box-shadow: none
+
+#{$all-text-inputs-hover}
+  border-color: $color-theme-base
+
+#{$all-text-inputs-focus}
+  outline: 2px solid $color-theme-base

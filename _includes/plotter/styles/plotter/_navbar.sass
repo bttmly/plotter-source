@@ -1,0 +1,57 @@
+@import "colors"
+
+// http://codepen.io/vmathew/pen/KDxvi
+.menu-toggle
+  position: relative
+  display: inline-block
+  width: 2rem
+  height: 30px
+  margin: 0
+  position: fixed
+  right: 2rem
+  top: 2rem
+  cursor: pointer
+  span
+    margin: 0 auto
+    position: relative
+    top: 12px
+    -webkit-transition-duration: 0s
+    -webkit-transition-delay: .2s
+    &:before, &:after
+      position: absolute
+      content: ''
+    width: 2rem
+    height: 6px
+    background-color: $color-theme-base
+    display: block
+    &:before, &:after
+      width: 2rem
+      height: 6px
+      background-color: $color-theme-base
+      display: block
+    &:before
+      margin-top: -12px
+    &:after
+      margin-top: 12px
+  // &:hover span
+  &.menu-toggle--x span
+    background-color: rgba(0, 0, 0, 0)
+    -webkit-transition-delay: .2s
+  span:before
+    -webkit-transition-property: margin, -webkit-transform
+    -webkit-transition-duration: .2s
+    -webkit-transition-delay: .2s, 0
+  // &:hover span:before
+  &.menu-toggle--x span:before
+    margin-top: 0
+    -webkit-transform: rotate(45deg)
+    -webkit-transition-delay: 0, .2s
+  span:after
+    -webkit-transition-property: margin, -webkit-transform
+    -webkit-transition-duration: .2s
+    -webkit-transition-delay: .2s, 0
+  // &:hover span:after
+  &.menu-toggle--x span:after
+    margin-top: 0
+    -webkit-transform: rotate(-45deg)
+    -webkit-transition-delay: 0, .2s

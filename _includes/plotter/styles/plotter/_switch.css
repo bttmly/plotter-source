@@ -1,16 +1,19 @@
 .switch-component {
-  font-size: 75%;
-  font-weight: bold; }
+  font-weight: bold;
+  text-transform: uppercase; }
   .switch-component .switch__description {
     text-align: center;
     margin-bottom: 0.5em; }
   .switch-component .switch__option {
-    font-weight: bold;
-    float: left;
-    width: 50%;
     border: 1px solid #2c3e50;
     color: #2c3e50; }
     .switch-component .switch__option:last-of-type {
+      border-top: none; }
+  .switch-component .switch__option--inline {
+    float: left;
+    width: 50%; }
+    .switch-component .switch__option--inline:last-of-type {
+      border-top: 1px solid;
       border-left: none; }
   .switch-component .switch__input {
     display: none; }
@@ -21,9 +24,11 @@
     padding: 0.5em;
     cursor: pointer; }
   .switch-component .switch__input:checked + .switch__label {
-    color: white;
+    color: #2ecc71;
     background: #2c3e50;
     border-color: #2c3e50;
     cursor: default; }
-  .switch-component .switch__input:not(:checked) + .switch__label {
-    opacity: 0.75; }
+  .switch-component:after {
+    content: "";
+    display: table;
+    clear: both; }

@@ -1,0 +1,11 @@
+- axis: x
+  name: X-Axis
+
+- axis: y
+  name: Y-Axis
+
+- axis: size
+  name: Dot Size
+
+- axis: shade
+  name: Dot Shade

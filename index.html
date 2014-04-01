@@ -3,23 +3,37 @@ layout: default
 title: NFL Scatterplotter
 ---
 
+<div class="info-bar">
+</div>
+
+<span class="menu-toggle">
+  <span></span>
+</span>
+
 <div class="page-wrapper">
   <div class="control-pane">
 
     {% include plotter/html/player-position-switch.html %}
 
     {% include plotter/html/input-group--positions.html %}
-    
+
+    {% include plotter/html/input-group--players.html %}
     
     {% include plotter/html/input-group--seasons.html %}
     {% include plotter/html/input-group--variables.html %}
 
     {% include plotter/html/game-season-switch.html %}
 
+    <p>
+      <small>© 2014 &mdash; Nick Bottomley</small>
+    </p>
+    <p>
+      <small>
+        <a href="#">Code on GitHub</a>
+      </small>
+    </p>
 
   </div>
-
-
   <div class="chart-pane">
 </div>
 

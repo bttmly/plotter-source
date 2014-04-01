@@ -1,0 +1,30 @@
+{
+  "name": "plotter",
+  "version": "0.1.0",
+  "homepage": "https://nickb1080.github.com/plotter",
+  "authors": [
+    "Nick Bottomley <nhbottomley@gmail.com>"
+  ],
+  "description": "nfl scatterplot",
+  "main": "index.html",
+  "keywords": [
+    "nfl",
+    "fantasy",
+    "football",
+    "d3"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "jquery": "~2.1.0"
+  }
+}

@@ -1,0 +1,15 @@
+- abbr: qb
+  long_name: Quarterbacks
+  color: blue
+
+- abbr: rb
+  long_name: Running Backs
+  color: green
+
+- abbr: te
+  long_name: Tight Ends
+  color: yellow
+
+- abbr: wr
+  long_name: Wide Receivers
+  color: orange

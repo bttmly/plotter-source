@@ -1,0 +1,46 @@
+@import "colors"
+
+body
+  color: $color-theme-base
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
+
+h1, h2, h3, h4, h5, h6, p, label, input, select
+  color: $color-theme-base
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
+
+.input-group
+  margin-bottom: 2rem
+  position: relative
+
+.input-group__title
+  font-size: 1.5rem
+  text-transform: uppercase
+  margin-bottom: .5rem
+
+.input-group__toggle
+  width: 1.5rem
+  height: 1.5rem
+  position: absolute
+  top: 0
+  right: .5rem
+  cursor: pointer
+  &:after,
+  &:before
+    content: ""
+    background: $color-theme-accent
+    width: 1.5rem
+    height: .375rem
+    position: absolute
+    top: .5rem
+    transition: all .25s ease-in-out
+  &:before
+    -webkit-transform: rotate(0)
+    transform: rotate(0)
+
+.input-group--collapsed
+  .input-group__toggle
+    &:before
+      -webkit-transform: rotate(90deg)
+      transform: rotate(90deg)

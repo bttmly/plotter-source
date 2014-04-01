@@ -240,6 +240,61 @@ dl {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+body {
+  color: #2c3e50;
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+
+h1, h2, h3, h4, h5, h6, p, label, input, select {
+  color: #2c3e50;
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
+  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+
+.input-group {
+  margin-bottom: 2rem;
+  position: relative; }
+
+.input-group__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem; }
+
+.input-group__toggle {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+  cursor: pointer; }
+  .input-group__toggle:after, .input-group__toggle:before {
+    content: "";
+    background: #2ecc71;
+    width: 1.5rem;
+    height: 0.375rem;
+    position: absolute;
+    top: 0.5rem;
+    transition: all 0.25s ease-in-out; }
+  .input-group__toggle:before {
+    -webkit-transform: rotate(0);
+    transform: rotate(0); }
+
+.input-group--collapsed .input-group__toggle:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
+  font-family: inherit;
+  outline: 0.5rem solid transparent;
+  border: 1px solid #2c3e50;
+  transition: border-color 0.25s ease-in-out, outline 0.25s ease-in-out;
+  box-shadow: none; }
+
+input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover {
+  border-color: #2c3e50; }
+
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus {
+  outline: 2px solid #2c3e50; }
+
 .check-group .check__label {
   margin-bottom: 0; }
 
@@ -249,7 +304,7 @@ dl {
     display: none; }
   .check-component-blue .check__label, .check-component-green .check__label, .check-component-yellow .check__label, .check-component-orange .check__label, .check-component-red .check__label, .check-component-purple .check__label, .check-component-base .check__label {
     display: block;
-    padding: 0.5em;
+    padding: 0.5em 1rem;
     position: relative;
     color: white;
     cursor: pointer;
@@ -333,18 +388,21 @@ dl {
   background: #2c3e50; }
 
 .switch-component {
-  font-size: 75%;
-  font-weight: bold; }
+  font-weight: bold;
+  text-transform: uppercase; }
   .switch-component .switch__description {
     text-align: center;
     margin-bottom: 0.5em; }
   .switch-component .switch__option {
-    font-weight: bold;
-    float: left;
-    width: 50%;
     border: 1px solid #2c3e50;
     color: #2c3e50; }
     .switch-component .switch__option:last-of-type {
+      border-top: none; }
+  .switch-component .switch__option--inline {
+    float: left;
+    width: 50%; }
+    .switch-component .switch__option--inline:last-of-type {
+      border-top: 1px solid;
       border-left: none; }
   .switch-component .switch__input {
     display: none; }
@@ -355,12 +413,14 @@ dl {
     padding: 0.5em;
     cursor: pointer; }
   .switch-component .switch__input:checked + .switch__label {
-    color: white;
+    color: #2ecc71;
     background: #2c3e50;
     border-color: #2c3e50;
     cursor: default; }
-  .switch-component .switch__input:not(:checked) + .switch__label {
-    opacity: 0.75; }
+  .switch-component:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .page-wrapper {
   display: flex; }
@@ -369,9 +429,65 @@ dl {
   max-height: 100vh;
   overflow-y: scroll;
   width: 16em;
-  padding: 1em; }
+  padding: 1em;
+  box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2); }
 
 .chart-pane {
   background: #eeeeee;
   height: 100vh;
   flex: 1; }
+
+.input-select-component {
+  margin-top: 1rem; }
+
+.menu-toggle {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 30px;
+  margin: 0;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer; }
+  .menu-toggle span {
+    margin: 0 auto;
+    position: relative;
+    top: 12px;
+    -webkit-transition-duration: 0s;
+    -webkit-transition-delay: 0.2s;
+    width: 2rem;
+    height: 6px;
+    background-color: #2c3e50;
+    display: block; }
+    .menu-toggle span:before, .menu-toggle span:after {
+      position: absolute;
+      content: ""; }
+    .menu-toggle span:before, .menu-toggle span:after {
+      width: 2rem;
+      height: 6px;
+      background-color: #2c3e50;
+      display: block; }
+    .menu-toggle span:before {
+      margin-top: -12px; }
+    .menu-toggle span:after {
+      margin-top: 12px; }
+  .menu-toggle.menu-toggle--x span {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-transition-delay: 0.2s; }
+  .menu-toggle span:before {
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-delay: 0.2s, 0; }
+  .menu-toggle.menu-toggle--x span:before {
+    margin-top: 0;
+    -webkit-transform: rotate(45deg);
+    -webkit-transition-delay: 0, 0.2s; }
+  .menu-toggle span:after {
+    -webkit-transition-property: margin, -webkit-transform;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-delay: 0.2s, 0; }
+  .menu-toggle.menu-toggle--x span:after {
+    margin-top: 0;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transition-delay: 0, 0.2s; }

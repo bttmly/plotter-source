@@ -1,13 +1,13 @@
 # this is the only object that should be collecting data from DOM elements.
-Plotter.InputCollector = ->
+Plotter.InputCollector = do ->
 
   valid = true
 
   $cache = do ->
     seasons : $( "#input-group--seasons .check__input" )
     positions: $( "#input-group--positions .check__input" )
-    variables: $( "#input-group--variables input-select" )
-    players: $( "#input-group--players input-select")
+    variables: $( "#input-group--variables .input-select" )
+    players: $( "#input-group--players .input-select")
     ppSwitch: $( "#input-group--pp-switch .switch-input" )
     gsSwitch: $( "#input-group--gs-switch .switch-input" )
 
@@ -28,6 +28,8 @@ Plotter.InputCollector = ->
   values = ->
     return this.inputValues
 
-  update : update
-  validate : validate
-  values : values
+  return {
+    update : update
+    validate : validate
+    values : values
+  }

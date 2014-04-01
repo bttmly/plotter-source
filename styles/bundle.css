@@ -4,7 +4,7 @@
 {% include plotter/styles/normalize.min.css %}
 
 /* chosen.css */
-{% include vendor/chosen/public/chosen.min.css %}
+{% include vendor/chosen/sass/chosen.css %}
 
 /* styntax.css */
 {% include plotter/styles/syntax.css %}

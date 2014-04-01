@@ -2,28 +2,17 @@
   
   <h2 class="input-group__title">Variables</h2>
   <span class="input-group__toggle"></span>
-  
   <div class="input-group__content">
-    <div class="">
-      <select class="input-select input-select--variables">
-        {% include plotter/html/variable-options.html %}
-      </select>
-    </div>
-    <div class="">
-      <select class="input-select input-select--variables">
-        {% include plotter/html/variable-options.html %}
-      </select>
-    </div>
-    <div class="">
-      <select class="input-select input-select--variables">
-        {% include plotter/html/variable-options.html %}
-      </select>
-    </div>
-    <div class="">
-      <select class="input-select input-select--variables">
-        {% include plotter/html/variable-options.html %}
-      </select>
-    </div>
+    
+    {% for variable in site.data.variables %}
+      <div class="input-select-component">
+        <label for="{{ variable.axis }}-var-select">{{ variable.name }} Variable</label>
+        <select id="{{ variable.axis }}-var-select" class="input-select input-select--variables">
+          {% include plotter/html/variable-options.html %}
+        </select>
+      </div>
+    {% endfor %}
+
   </div>
   
 </div>

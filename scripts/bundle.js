@@ -9,6 +9,10 @@
 //
 {% include vendor/lodash/lodash.min.js %}
 
+// UNDERDSCORE STRING
+//
+{% include vendor/underscore-string/underscore-string.min.js %}
+
 // COLOR.JS
 //
 {% include vendor/colorjs/color.js %}
