@@ -1,41 +1,14 @@
 # only this object should be handling the dataset
-Plotter.DataSorter = do ->
-  fullSet = undefined
-  subSet = undefined
-  ajaxPromise = undefined
 
-  getDataset = ->
-    $.getJSON "data/clean-dataset.08-12.min.json", ( json ) ->
-      fullSet = new Collection( json )
-      $.pub "dataset:complete", [ fullSet ]
+do ( App = window.Plotter ) ->
 
-  # names quack one way, positions another
-  duckFilter = ( ppArr, seasonArr ) ->
-    unless fullSet
-      throw new Error( "Sorry, dataset not loaded." )
-      return
+  __ = ( arr ) ->
+    return new Collection( arr )
 
-    prop = ""
-    if ppArr[0].split( " " ).length > 1
-      prop = "name"
-    else
-      prop = "position"
+  App.DataSorter = undefined
 
-    filterObj = [
-      prop: prop
-      vals: ppArr
-    ,
-      prop: "season"
-      vals: positionArr 
-    ]
+  App.on "dataSetComplete", ( event, data ) ->
+    App.DataSorter = __( data )
 
-    subSet = fullSet.multiWhereArray( filterObj, true )
-    
-  $ ->
-    getDataset()
-
-  duckFilter : duckFilter
-  fullSet: ->
-    return fullSet
-  subSet : ->
-    return subSet
+  App.on "requestRender", ( event, data ) ->
+    App.DataSorter # do something

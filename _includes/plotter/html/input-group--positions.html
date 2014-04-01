@@ -9,7 +9,7 @@
 
     <div class="check-component-{{ position.color }}">
       <input type="checkbox" id="check-{{ position.abbr }}" class="check__input"/>
-      <label for="check-{{ position.abbr }}" class="check__label">{{ position.long_name }}</label>
+      <label for="check-{{ position.abbr }}" class="check__label">{{ position.long_name | upcase }}</label>
     </div>
 
     {% endfor %}

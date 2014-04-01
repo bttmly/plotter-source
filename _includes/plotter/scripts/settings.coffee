@@ -1,13 +1,6 @@
 Plotter.settings = 
   url:
-    dataset: "data/clean-dataset.08-12.json"
-    names: "data/names.08-12.json"
-
-  storageKeys:
-    datasetCurrent: "datasetTo2012"
-    datasetOld: []
-    namesCurrent: "playerNamesTo2012"
-    namesOld: []
+    dataset: "data/clean-dataset.08-13.json"
 
   chart:
     padding : 60
@@ -19,9 +12,6 @@ Plotter.settings =
     RB : "#2ecc71"
     TE : "#f1c40f"
     WR : "#e67e22"
-
-
-
 
 Plotter.STATIC = 
   abbrToStat:
@@ -49,7 +39,6 @@ Plotter.STATIC =
     G         : "Games Played"
     GS        : "Games Started"
     
-
   statToAbbr:
     "Pass Completions":"PassComp"
     "Pass Attempts":"PassAtt"

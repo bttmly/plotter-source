@@ -1,0 +1,46 @@
+@import "colors"
+
+button,
+.btn
+  display: block
+  width: 100%
+  border: 1px solid
+  padding: .5em
+  border-radius: .25rem
+  background: transparent
+  border-color: $color-theme-base
+  color: $color-theme-base
+  font-family: inherit
+  font-weight: 600
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  &:disabled
+    cursor: not-allowed !important
+    border-color: $color-gray-light !important
+    background: $color-gray-light !important
+    color: #fff
+    // pointer-events: none !important
+
+.btn-primary
+  &:not(:disabled)
+    &:hover,
+    &:active
+      background: $color-theme-base
+      color: $color-theme-accent
+
+.btn-secondary
+  &:not(:disabled)
+    &:hover,
+    &:active
+      border-color: $color-theme-accent
+      background: $color-theme-accent
+      color: $color-theme-base
+
+.btn-inline
+  display: inline-block
+
+.button-component,
+.btn-component
+  margin: 1rem 0

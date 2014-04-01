@@ -2,14 +2,7 @@
 (function() {
   Plotter.settings = {
     url: {
-      dataset: "data/clean-dataset.08-12.json",
-      names: "data/names.08-12.json"
-    },
-    storageKeys: {
-      datasetCurrent: "datasetTo2012",
-      datasetOld: [],
-      namesCurrent: "playerNamesTo2012",
-      namesOld: []
+      dataset: "data/clean-dataset.08-13.json"
     },
     chart: {
       padding: 60,

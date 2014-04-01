@@ -1,0 +1,38 @@
+button,
+.btn {
+  display: block;
+  width: 100%;
+  border: 1px solid;
+  padding: 0.5em;
+  border-radius: 0.25rem;
+  background: transparent;
+  border-color: #2c3e50;
+  color: #2c3e50;
+  font-family: inherit;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+  button:disabled,
+  .btn:disabled {
+    cursor: not-allowed !important;
+    border-color: #bdc3c7 !important;
+    background: #bdc3c7 !important;
+    color: white; }
+
+.btn-primary:not(:disabled):hover, .btn-primary:not(:disabled):active {
+  background: #2c3e50;
+  color: #2ecc71; }
+
+.btn-secondary:not(:disabled):hover, .btn-secondary:not(:disabled):active {
+  border-color: #2ecc71;
+  background: #2ecc71;
+  color: #2c3e50; }
+
+.btn-inline {
+  display: inline-block; }
+
+.button-component,
+.btn-component {
+  margin: 1rem 0; }

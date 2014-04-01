@@ -8,9 +8,10 @@
   height: 30px
   margin: 0
   position: fixed
-  right: 2rem
-  top: 2rem
+  right: 1rem
+  top: 1rem
   cursor: pointer
+  z-index: 8000
   span
     margin: 0 auto
     position: relative
@@ -22,12 +23,12 @@
       content: ''
     width: 2rem
     height: 6px
-    background-color: $color-theme-base
+    background-color: $color-theme-accent
     display: block
     &:before, &:after
       width: 2rem
       height: 6px
-      background-color: $color-theme-base
+      background-color: $color-theme-accent
       display: block
     &:before
       margin-top: -12px
@@ -55,3 +56,30 @@
     margin-top: 0
     -webkit-transform: rotate(-45deg)
     -webkit-transition-delay: 0, .2s
+
+$navbar-height: 4rem
+.navbar
+  z-index: 2000
+  position: fixed
+  height: $navbar-height
+  width: 100%
+  background: $color-theme-base
+  -webkit-transform: translate3d(0, -$navbar-height, 0)
+  transform: translate3d(0, -$navbar-height, 0)
+  transition: all .3s ease-in-out
+  transition-delay: .1s
+  box-shadow: 0 0 0 0 transparent
+  left: 0
+  top: 0
+
+.navbar-open 
+  .navbar
+    -webkit-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)
+    transition-delay: 0
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .5)
+  .page-wrapper
+    padding-top: $navbar-height
+    height: calc(100vh - $navbar-height)
+    transition-delay: .1s
+

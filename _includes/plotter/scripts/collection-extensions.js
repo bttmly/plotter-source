@@ -3,13 +3,6 @@
   var compare,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  _.each(["pop", "push", "shift", "unshift"], function(method) {
-    return Collection.prototype["" + method + "Chain"] = function() {
-      Array.prototype[method].apply(this, arguments);
-      return this;
-    };
-  });
-
   compare = function(val1, comp, val2) {
     switch (comp) {
       case "===":
@@ -27,11 +20,8 @@
     }
   };
 
-  Collection.prototype.whereArray = function(prop, vals, returnCollection) {
+  Collection.prototype.whereArray = function(prop, vals) {
     var element, _i, _len, _ref;
-    if (returnCollection == null) {
-      returnCollection = true;
-    }
     switch (Plotter.util.typeCheck(arr)) {
       case "string":
         vals = [vals];
@@ -49,28 +39,11 @@
         }
       }
     }
-    if (returnCollection) {
-      return new Collection(results);
-    } else {
-      return results;
-    }
+    return new Collection(results);
   };
 
-
-  /*
-  opts = [
-    { prop: "propA",
-      vals: ["val1", "val2"] },
-    { prop: "propB",
-      vals: ["val3, "val4"] }
-  ]
-   */
-
-  Collection.prototype.multiWhereArray = function(opts, returnCollection) {
+  Collection.prototype.multiWhereArray = function(opts) {
     var args, opt, results, _i, _len, _results;
-    if (returnCollection == null) {
-      returnCollection = true;
-    }
     results = this;
     _results = [];
     for (_i = 0, _len = opts.length; _i < _len; _i++) {
@@ -81,23 +54,8 @@
     return _results;
   };
 
-
-  /*
-  opts = [
-    { prop: "passYds",
-      comp: ">="
-      val: 3000 },
-    { prop: "age",
-      comp: "<"
-      val: 28 }
-  ]
-   */
-
-  Collection.prototype.dynamicFilter = function(opts, returnCollection) {
+  Collection.prototype.dynamicFilter = function(opts) {
     var opt, results, _i, _len;
-    if (returnCollection == null) {
-      returnCollection = true;
-    }
     results = this;
     for (_i = 0, _len = opts.length; _i < _len; _i++) {
       opt = opts[_i];
@@ -105,11 +63,7 @@
         return compare(el[opt.prop], opt.comp, opt.val);
       });
     }
-    if (returnCollection) {
-      return new Collection(results);
-    } else {
-      return results;
-    }
+    return Collection(results);
   };
 
 }).call(this);

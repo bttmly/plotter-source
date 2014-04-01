@@ -10,6 +10,12 @@ h1, h2, h3, h4, h5, h6, p, label, input, select
   font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
   font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif
 
+label
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
 .input-group
   margin-bottom: 2rem
   position: relative
@@ -20,11 +26,11 @@ h1, h2, h3, h4, h5, h6, p, label, input, select
   margin-bottom: .5rem
 
 .input-group__toggle
-  width: 1.5rem
+  width: 100%
   height: 1.5rem
   position: absolute
   top: 0
-  right: .5rem
+  right: 0
   cursor: pointer
   &:after,
   &:before
@@ -34,6 +40,7 @@ h1, h2, h3, h4, h5, h6, p, label, input, select
     height: .375rem
     position: absolute
     top: .5rem
+    right: 0
     transition: all .25s ease-in-out
   &:before
     -webkit-transform: rotate(0)
