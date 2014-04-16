@@ -21,16 +21,17 @@
   };
 
   Collection.prototype.whereArray = function(prop, vals) {
-    var element, _i, _len, _ref;
-    switch (Plotter.util.typeCheck(arr)) {
+    var element, results, _i, _len, _ref;
+    switch (Plotter.util.typeCheck(vals)) {
       case "string":
         vals = [vals];
         break;
       case "array":
         break;
       default:
-        throw new Error("Collection::propCheckArr requires a string or array as its second argument.");
+        throw new Error("Collection::whereArr requires a string or array as its second argument.");
     }
+    results = [];
     for (_i = 0, _len = this.length; _i < _len; _i++) {
       element = this[_i];
       if (element[prop]) {
@@ -43,15 +44,13 @@
   };
 
   Collection.prototype.multiWhereArray = function(opts) {
-    var args, opt, results, _i, _len, _results;
+    var opt, results, _i, _len;
     results = this;
-    _results = [];
     for (_i = 0, _len = opts.length; _i < _len; _i++) {
       opt = opts[_i];
-      args = [opt.prop, opt.vals, returnCollection];
-      _results.push(results = Collection.prototype.whereArray.apply(results, args));
+      results = Collection.prototype.whereArray.apply(results, [opt.prop, opt.vals]);
     }
-    return _results;
+    return results;
   };
 
   Collection.prototype.dynamicFilter = function(opts) {

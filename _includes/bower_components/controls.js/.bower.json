@@ -25,14 +25,13 @@
     "test",
     "tests"
   ],
-  "_release": "7a4b39aa91",
+  "_release": "fc42e47755",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "7a4b39aa91be33714187c13b0ae898addd3ec59b"
+    "commit": "fc42e477557066b90d78108b4cb8a2114bd6f215"
   },
   "_source": "https://github.com/nickb1080/controls.js.git",
   "_target": "*",
-  "_originalSource": "https://github.com/nickb1080/controls.js.git",
-  "_direct": true
+  "_originalSource": "https://github.com/nickb1080/controls.js.git"
 }

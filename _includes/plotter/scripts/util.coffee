@@ -1,4 +1,4 @@
-Plotter.util = ->
+Plotter.util = do ->
 
    typeCheck : (obj) ->
     if obj == undefined or obj == null

@@ -13,72 +13,80 @@ Plotter.settings =
     TE : "#f1c40f"
     WR : "#e67e22"
 
-Plotter.STATIC = 
-  abbrToStat:
-    PassComp  : "Pass Completions"
-    PassAtt   : "Pass Attempts"
-    PassYds   : "Pass Yards"
-    PassTD    : "Pass Touchdowns"
-    PassINT   : "Interceptions"
-    RushAtt   : "Rushing Attempts"
-    RushYds   : "Rushing Yards"
-    RushTD    : "Rushing Touchdowns"
-    RushYPA   : "Yards Per Rush"
-    Recs      : "Receptions"
-    RecYards  : "Receiving Yards"
-    RecYPR    : "Yards Per Reception"
-    RecTD     : "Receiving Touchdowns"
-    ScrimYds  : "Total Scrimmage Yards"
-    TotalTD   : "Total Touchdowns"
-    FantPt    : "Fantasy Points"
-    PosRank   : "Fantasy Position Rank"
-    VBD       : "VBD Points"
-    OvRank    : "Overall VBD Rank"
-    Season    : "Season"
-    Age       : "Age"
-    G         : "Games Played"
-    GS        : "Games Started"
+  abbrToStat: [
+    Passing :
+      passComp        : "Pass Completions"
+      passAtt         : "Pass Attempts"
+      passYds         : "Pass Yards"
+      passTD          : "Pass Touchdowns"
+      passINT         : "Interceptions"
+    Rushing : 
+      rushAtt         : "Rushing Attempts"
+      rushYds         : "Rushing Yards"
+      rushTD          : "Rushing Touchdowns"
+      rushYPA         : "Yards Per Rush"
+    Receiving :
+      recs            : "Receptions"
+      recYards        : "Receiving Yards"
+      recYPR          : "Yards Per Reception"
+      recTD           : "Receiving Touchdowns"
+    Totals :
+      scrimYds        : "Total Scrimmage Yards"
+      totalTD         : "Total Touchdowns"
+      totalTouches    : "Total Touches"
+    Fantasy :
+      fantPt          : "Fantasy Points"
+      fantPos         : "Position"
+      posRank         : "Fantasy Position Rank"
+      VBD             : "VBD Points"
+      ovRank          : "Overall VBD Rank"
+    Other :
+      season          : "Season"
+      age             : "Age"
+      gamesPlayed     : "Games Played"
+      gamesStarted    : "Games Started"
+    ]
     
   statToAbbr:
-    "Pass Completions":"PassComp"
-    "Pass Attempts":"PassAtt"
-    "Pass Yards":"PassYds"
-    "Pass TD":"PassTD"
-    "Interceptions":"PassINT"
-    "Rushing Attempts":"RushAtt"
-    "Rushing Yards":"RushYds"
-    "Rushing Touchdowns":"RushTD"
-    "Yards Per Rush":"RushYPA"
-    "Receptions":"Recs"
-    "Receiving Yards":"RecYards"
-    "Yards Per Reception":"RecYPR"
-    "Receiving Touchdowns":"RecTD"
-    "Total Scrimmage Yards":"ScrimYds"
-    "Total Touchdowns":"TotalTD"
-    "Fantasy Points":"FantPt"
-    "Fantasy Position Rank":"PosRank"
+    "Pass Completions":"passComp"
+    "Pass Attempts":"passAtt"
+    "Pass Yards":"passYds"
+    "Pass TD":"passTD"
+    "Interceptions":"passINT"
+    "Rushing Attempts":"rushAtt"
+    "Rushing Yards":"rushYds"
+    "Rushing Touchdowns":"rushTD"
+    "Yards Per Rush":"rushYPA"
+    "Receptions":"recs"
+    "Receiving Yards":"recYards"
+    "Yards Per Reception":"recYPR"
+    "Receiving Touchdowns":"recTD"
+    "Total Scrimmage Yards":"scrimYds"
+    "Total Touchdowns":"totalTD"
+    "Fantasy Points":"fantPt"
+    "Fantasy Position Rank":"posRank"
     "VBD Points":"VBD"
-    "Overall VBD Rank":"OvRank"
-    "Season":"Season"
-    "Age":"Age"
-    "Games Played":"G"
-    "Games Started":"GS"
+    "Overall VBD Rank":"ovRank"
+    "Season":"season"
+    "Age":"age"
+    "Games Played":"gamesPlayed"
+    "Games Started":"gamesStarted"
 
   perGameStats : [
-    'PassComp',
-    'PassAtt',
-    'PassYds',
-    'PassTD',
-    'PassINT',
-    'RushAtt',
-    'RushYds',
-    'RushTD',
-    'RecYards',
-    'RecTD',
-    'FantPt',
+    'passComp',
+    'passAtt',
+    'passYds',
+    'passTD',
+    'passINT',
+    'rushAtt',
+    'rushYds',
+    'rushTD',
+    'recYards',
+    'recTD',
+    'fantPt',
     'VBD', 
-    'ScrimYds', 
-    'TotalTD'
+    'scrimYds', 
+    'totalTD'
   ]
 
   teams: [

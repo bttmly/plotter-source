@@ -12,4 +12,8 @@ window.Plotter = {};
 
 {% include plotter/scripts/data-sorter.js %}
 
+{% include plotter/scripts/scale-maker.js %}
+
+{% include plotter/scripts/chart-drawer.js %}
+
 {% include plotter/scripts/ui.js %}

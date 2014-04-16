@@ -42,7 +42,6 @@ do ( App = window.Plotter ) ->
   do ->
     playerSelect = $( ".input-select--players" )
     App.on "dataSetLoaded", ( event, fullSet ) ->
-
       names = ( new Collection( fullSet ) ).pluck( "name" ).sort().unique()
       htmlStr = "<option></option>"
       for name in names
@@ -51,6 +50,17 @@ do ( App = window.Plotter ) ->
         htmlStr += "</option>"
       playerSelect.html( htmlStr ).chosen
         width: "100%"
+
+  # var select
+  do ->
+    htmlStr = ""
+    groups = ["Passing", "Rushing", "Receiving", "Totals", "Fantasy", "Other"]
+    App.on "dataSetLoaded", ( event, fullSet ) ->
+      for group in groups
+        htmlStr += "<optgroup label='#{ name }'>"     
+
+
+
 
 
 

@@ -33,7 +33,7 @@
         return $("html").toggleClass("navbar-open");
       });
     })();
-    return (function() {
+    (function() {
       var playerSelect;
       playerSelect = $(".input-select--players");
       return App.on("dataSetLoaded", function(event, fullSet) {
@@ -49,6 +49,20 @@
         return playerSelect.html(htmlStr).chosen({
           width: "100%"
         });
+      });
+    })();
+    return (function() {
+      var groups, htmlStr;
+      htmlStr = "";
+      groups = ["Passing", "Rushing", "Receiving", "Totals", "Fantasy", "Other"];
+      return App.on("dataSetLoaded", function(event, fullSet) {
+        var group, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = groups.length; _i < _len; _i++) {
+          group = groups[_i];
+          _results.push(htmlStr += "<optgroup label='" + name + "'>");
+        }
+        return _results;
       });
     })();
   })(window.Plotter);

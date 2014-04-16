@@ -6,11 +6,24 @@
       return new Collection(arr);
     };
     App.DataSorter = void 0;
-    App.on("dataSetComplete", function(event, data) {
+    App.on("dataSetLoaded", function(event, data) {
       return App.DataSorter = __(data);
     });
     return App.on("requestRender", function(event, data) {
-      return App.DataSorter;
+      var ppProp, sortArr, sortData;
+      sortData = data;
+      sortData.seasons = sortData.seasons.map(Number);
+      ppProp = sortData.ppVal[0].length === 2 ? "fantPos" : "name";
+      sortArr = [
+        {
+          prop: ppProp,
+          vals: sortData.ppVal
+        }, {
+          prop: "season",
+          vals: sortData.seasons
+        }
+      ];
+      return App.ChartDrawer(sortData.vars, App.DataSorter.multiWhereArray(sortArr));
     });
   })(window.Plotter);
 

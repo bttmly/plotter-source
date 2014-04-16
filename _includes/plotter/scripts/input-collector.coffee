@@ -1,8 +1,4 @@
-# Only this file touches the controls interface
-
-# this is the only object that should be collecting data from DOM elements.
-
-Plotter.InputCollector = do ->
+do ( App = window.Plotter ) ->
 
   $ ->
 
@@ -20,7 +16,53 @@ Plotter.InputCollector = do ->
     ]
     Plotter.controls = $$( appControls )
 
+
+    # this is fucking horrible. Interim fix until the controls.js API gets sorted out.
+    Plotter.controls.formattedValues = ->
+      ret = {}
+      valid = true
+
+      if ( ppVal = playerPositionSwitch.value()?[0]?.val )
+        if ppVal is "positions"
+          ret.ppVal = positions.value().map ( obj ) ->
+            return obj.val
+        else if ppVal is "players"
+          ret.ppVal = _.flatten players.value().map ( obj ) ->
+            return obj.val
+      else
+        valid = false
+
+      if ( seasonVal = seasons.value() )
+        ret.seasons = seasonVal.map ( obj ) ->
+          return obj.val
+      else
+        valid = false
+
+      if ( varVal = variables.value() )
+        ret.vars = {}
+        for v in varVal
+          ret.vars[ v.id ] = v.val[0]
+        # if  !ret.vars[ "x-var-select" ] or !!ret.vars[ "y-var-select" ]
+        #   valid = false
+      else
+        valid = false
+
+      unless ( ret.gsVal = gameSeasonSwitch.value()?[0]?.val )
+        valid = false
+
+      return if not valid then valid else ret
+
+
+
+
+
+
+
     # UI prep; disable buttons
+    # need to refactor this out of this file
+    renderButton.on "click", ( event ) ->
+      App.trigger "requestRender", Plotter.controls.formattedValues()
+
     renderButton.disabled( true )
     highlightButton.disabled( true )
 
@@ -38,6 +80,8 @@ Plotter.InputCollector = do ->
 
     
     Plotter.controls.on "change", ( event ) ->
-      # validate & enable render button here
+      if Plotter.controls.formattedValues()
+        renderButton.disabled( false )
+
 
 

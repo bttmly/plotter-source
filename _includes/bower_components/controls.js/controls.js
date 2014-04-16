@@ -29,7 +29,7 @@
       }
 
       BaseControl.prototype.required = function(param) {
-        if (param) {
+        if (arguments.length) {
           this.el.required = !!param;
           return this;
         } else {
@@ -38,7 +38,7 @@
       };
 
       BaseControl.prototype.disabled = function(param) {
-        if (param) {
+        if (arguments.length) {
           this.el.disabled = !!param;
           return this;
         } else {
@@ -47,7 +47,7 @@
       };
 
       BaseControl.prototype.value = function(param) {
-        if (param) {
+        if (arguments.length) {
           this.el.value = param;
           return this;
         } else if (this.valid()) {
@@ -112,22 +112,21 @@
       }
 
       SelectControl.prototype.value = function() {
-        var option;
-        return (function() {
-          var _i, _len, _ref, _results;
-          _ref = this.selected();
-          _results = [];
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            option = _ref[_i];
-            _results.push(option.value);
+        var option, results, _i, _len, _ref;
+        results = [];
+        _ref = this.selected();
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          option = _ref[_i];
+          if (option.value) {
+            results.push(option.value);
           }
-          return _results;
-        }).call(this);
+        }
+        return results;
       };
 
       SelectControl.prototype.selected = function() {
         return filter(this.el.querySelectorAll("option"), function(opt) {
-          return opt.selected && !opt.disabled;
+          return opt.selected && opt.value && !opt.disabled;
         });
       };
 
@@ -154,6 +153,7 @@
           this.push(component);
         }
         this.id = options.id;
+        this.listners = {};
       }
 
       ControlCollection.prototype.value = function() {
@@ -172,12 +172,16 @@
         return values;
       };
 
-      ControlCollection.prototype.valueHash = function() {
+      ControlCollection.prototype.valueArray = function(deep) {
         var component, values, _i, _len;
         values = [];
         for (_i = 0, _len = this.length; _i < _len; _i++) {
           component = this[_i];
-          values.push(component.value());
+          if (deep) {
+            values.push(component.valueArray() || component.value());
+          } else {
+            values.push(component.value());
+          }
         }
         return values;
       };
@@ -187,7 +191,7 @@
         results = {};
         for (_i = 0, _len = this.length; _i < _len; _i++) {
           component = this[_i];
-          if (param) {
+          if (param != null) {
             component.disabled(param);
           }
           results[component.id] = component.disabled();
@@ -200,7 +204,7 @@
         results = {};
         for (_i = 0, _len = this.length; _i < _len; _i++) {
           component = this[_i];
-          if (param) {
+          if (param != null) {
             component.required(param);
           }
           results[component.id] = component.required();
@@ -241,11 +245,18 @@
         var component, _i, _len;
         for (_i = 0, _len = this.length; _i < _len; _i++) {
           component = this[_i];
-          if (component.id) {
+          if (component.id === id) {
             return component;
           }
         }
         return false;
+      };
+
+      ControlCollection.prototype._addListener = function(eventType, listener) {
+        if (!this.listeners[eventType]) {
+          this.listeners[eventType] = [];
+        }
+        return this.listeners[eventType].push(listener);
       };
 
       return ControlCollection;
@@ -281,7 +292,7 @@
         } else if (elParam instanceof Node && !(_ref = elParam.tagName, __indexOf.call(tagNames, _ref) >= 0)) {
           els = [];
           each(tagNames, function(name) {
-            els = els.concat(elParam.getElementsByTagName(name));
+            els = els.concat(slice(elParam.getElementsByTagName(name)));
           });
           factoryInner(els);
           return;
@@ -314,6 +325,7 @@
       return new ControlCollection(components, buildOptions);
     };
     controlFactory.identifyingAttribute = "id";
+    controlFactory.version = "0.2.0";
     return controlFactory;
   });
 

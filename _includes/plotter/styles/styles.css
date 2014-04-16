@@ -488,7 +488,7 @@ button,
       width: 0.5rem;
       height: 2rem; }
   .menu-toggle:hover span {
-    -webkit-animation: wiggle 0.2s ease-in-out 2; }
+    -webkit-animation: wiggle 0.2s ease-in-out infinite; }
   .menu-toggle.menu-toggle--x {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg); }

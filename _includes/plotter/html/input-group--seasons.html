@@ -7,7 +7,7 @@
 
     {% for season in site.data.seasons %}
       <div class="check-component-base">
-        <input type="checkbox" id="check-{{ season }}" class="check__input"/>
+        <input type="checkbox" id="check-{{ season }}" class="check__input" value="{{ season }}"/>
         <label for="check-{{ season }}" class="check__label">{{ season }}</label>
       </div>
     {% endfor %}

@@ -7,8 +7,22 @@ do ( App = window.Plotter ) ->
 
   App.DataSorter = undefined
 
-  App.on "dataSetComplete", ( event, data ) ->
+  App.on "dataSetLoaded", ( event, data ) ->
     App.DataSorter = __( data )
 
   App.on "requestRender", ( event, data ) ->
-    App.DataSorter # do something
+    sortData = data
+
+    sortData.seasons = sortData.seasons.map( Number )
+    ppProp = if sortData.ppVal[0].length is 2 then "fantPos" else "name"
+
+    sortArr = [
+      prop: ppProp
+      vals: sortData.ppVal
+    ,
+      prop: "season"
+      vals: sortData.seasons
+    ]
+
+    App.ChartDrawer( sortData.vars, App.DataSorter.multiWhereArray( sortArr ) )
+

@@ -15,7 +15,7 @@ compare = ( val1, comp, val2 ) ->
 
 # filter a collection by checking if each element[prop] value is in the passed array
 Collection::whereArray = ( prop, vals ) ->
-  switch Plotter.util.typeCheck( arr )
+  switch Plotter.util.typeCheck( vals )
     when "string"
       vals = [vals]
     when "array"
