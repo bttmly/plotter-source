@@ -1,11 +1,13 @@
+cp = $( ".chart-pane" )
+
 Plotter.settings = 
   url:
     dataset: "data/clean-dataset.08-13.json"
 
   chart:
     padding : 60
-    height  : 450
-    width   : 900
+    height  : cp.height()
+    width   : cp.width()
 
   posColors :
     QB : "#3498db"

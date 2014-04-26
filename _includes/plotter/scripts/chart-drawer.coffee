@@ -16,9 +16,9 @@ do ( App = window.Plotter ) ->
       App.scales = scales = makeScales( vars, data )
 
       # temp, set in config elsewhere.
-      chartHeight  = 400
-      chartWidth   = 800
-      chartPadding = 40
+      chartHeight  = App.settings.chart.height
+      chartWidth   = App.settings.chart.width
+      chartPadding = App.settings.chart.padding
 
       posColors = Plotter.settings.posColors
       x = vars.xVar
@@ -26,6 +26,8 @@ do ( App = window.Plotter ) ->
       r = vars.rVar
       c = vars.cVar
     
+      $( ".chart-pane" ).empty()
+
       scatterplot = d3.select ".chart-pane"
         .append "svg"
         .attr "id", "d3-scatterplot"
@@ -49,7 +51,7 @@ do ( App = window.Plotter ) ->
             # 4px is fallback radius is no r var is defined
             return 4
         .attr "fill", ( d ) ->
-          base = posColors[d.FantPos]
+          base = posColors[ d.fantPos ]
           if scales.c and d[c]
             if scales.c( d[c] ) > 0
               return Color( base )
@@ -67,13 +69,13 @@ do ( App = window.Plotter ) ->
         .attr "id", ( d ) ->
           id = ""
           id += d.name.split(" ").join("-").replace(/\./g, "").replace(/'/g, "") + "_"
-          id += d.Season + "_"
-          id += d.FantPos
+          id += d.season + "_"
+          id += d.fantPos
           return id
 
         xAxis = d3.svg.axis()
-          .scale(scales.x)
-          .orient("bottom")
+          .scale scales.x
+          .orient "bottom"
         
         yAxis = d3.svg.axis()
           .scale scales.y 
@@ -82,7 +84,7 @@ do ( App = window.Plotter ) ->
         scatterplot.append "g" 
           .attr "class", "axis"
           .attr "id", "xAxis"
-          .attr "transform", "translate( 0, #{chartHeight - chartPadding * 2} )"
+          .attr "transform", "translate( 0, #{chartHeight - chartPadding} )"
           .call xAxis
         
         scatterplot.append "text"

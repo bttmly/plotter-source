@@ -15,14 +15,15 @@
           cVar: App.settings.statToAbbr[vars["shade-var-select"]]
         };
         App.scales = scales = makeScales(vars, data);
-        chartHeight = 400;
-        chartWidth = 800;
-        chartPadding = 40;
+        chartHeight = App.settings.chart.height;
+        chartWidth = App.settings.chart.width;
+        chartPadding = App.settings.chart.padding;
         posColors = Plotter.settings.posColors;
         x = vars.xVar;
         y = vars.yVar;
         r = vars.rVar;
         c = vars.cVar;
+        $(".chart-pane").empty();
         scatterplot = d3.select(".chart-pane").append("svg").attr("id", "d3-scatterplot");
         dotHolder = d3.select("#d3-scatterplot").append("g").attr("id", "dot-holder");
         scatterplotPoints = dotHolder.selectAll("circle").data(data).enter().append("circle").attr("cx", function(d) {
@@ -37,7 +38,7 @@
           }
         }).attr("fill", function(d) {
           var base;
-          base = posColors[d.FantPos];
+          base = posColors[d.fantPos];
           if (scales.c && d[c]) {
             if (scales.c(d[c]) > 0) {
               return Color(base).lightenByAmount(scales.c(d[c])).desaturateByAmount(scales.c(d[c])).toCSS();
@@ -51,13 +52,13 @@
           var id;
           id = "";
           id += d.name.split(" ").join("-").replace(/\./g, "").replace(/'/g, "") + "_";
-          id += d.Season + "_";
-          id += d.FantPos;
+          id += d.season + "_";
+          id += d.fantPos;
           return id;
         });
         xAxis = d3.svg.axis().scale(scales.x).orient("bottom");
         yAxis = d3.svg.axis().scale(scales.y).orient("left");
-        scatterplot.append("g").attr("class", "axis").attr("id", "xAxis").attr("transform", "translate( 0, " + (chartHeight - chartPadding * 2) + " )").call(xAxis);
+        scatterplot.append("g").attr("class", "axis").attr("id", "xAxis").attr("transform", "translate( 0, " + (chartHeight - chartPadding) + " )").call(xAxis);
         scatterplot.append("text").attr("class", "xAxis-label").attr("transform", "translate( " + chartPadding + ", " + (chartHeight + 30 - chartPadding * 2) + " )").text(x);
         scatterplot.append("g").attr("class", "axis").attr("id", "yAxis").attr("transform", "translate( " + chartPadding + ", 0 )").call(yAxis);
         return scatterplot.append("text").attr("class", "yAxis-label").attr("transform", "translate( " + chartPadding + ", 0) rotate(-90)").text(y);
