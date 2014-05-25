@@ -48,7 +48,34 @@ Plotter.settings =
       gamesPlayed     : "Games Played"
       gamesStarted    : "Games Started"
     ]
-    
+
+  abbrToStatRaw:
+    passComp        : "Pass Completions"
+    passAtt         : "Pass Attempts"
+    passYds         : "Pass Yards"
+    passTD          : "Pass Touchdowns"
+    passINT         : "Interceptions"
+    rushAtt         : "Rushing Attempts"
+    rushYds         : "Rushing Yards"
+    rushTD          : "Rushing Touchdowns"
+    rushYPA         : "Yards Per Rush"
+    recs            : "Receptions"
+    recYards        : "Receiving Yards"
+    recYPR          : "Yards Per Reception"
+    recTD           : "Receiving Touchdowns"
+    scrimYds        : "Total Scrimmage Yards"
+    totalTD         : "Total Touchdowns"
+    totalTouches    : "Total Touches"
+    fantPt          : "Fantasy Points"
+    fantPos         : "Position"
+    posRank         : "Fantasy Position Rank"
+    VBD             : "VBD Points"
+    ovRank          : "Overall VBD Rank"
+    season          : "Season"
+    age             : "Age"
+    gamesPlayed     : "Games Played"
+    gamesStarted    : "Games Started"
+
   statToAbbr:
     "Pass Completions":"passComp"
     "Pass Attempts":"passAtt"

@@ -225,7 +225,7 @@
   .chosen-container-multi .chosen-choices li.search-choice {
     position: relative;
     margin: 0 0.25em 0.25em 0;
-    padding: 0.5em 1.5em 0.5em 0.5em;
+    padding: 0.5em 0.5em 0.5em 1.5em;
     border: 1px solid #aaaaaa;
     background-color: #e4e4e4;
     background-clip: padding-box;
@@ -235,7 +235,7 @@
     .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
       position: absolute;
       top: 0.625em;
-      right: 0.5em;
+      left: 0.5em;
       display: block;
       width: 1em;
       height: 1em;

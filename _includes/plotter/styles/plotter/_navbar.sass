@@ -20,7 +20,7 @@
     &:before,
     &:after
       content: ""
-      background: $color-theme-accent
+      background: $color-theme-base
       display: block
       position: absolute
       transition: all .3s ease
@@ -28,12 +28,14 @@
       background: transparent
       width: 1rem
       height: 1rem
-      border: .5rem solid $color-theme-accent
+      border: .5rem solid $color-theme-base
       border-top: none
       border-right: none
       margin-top: .5rem
       margin-left: .25rem
       -webkit-transform: rotate(-45deg)
+      -moz-transform: rotate(-45deg)
+      transform: rotate(-45deg)
     &:after
       left: .75rem
       width: .5rem
@@ -41,9 +43,14 @@
   &:hover
     span
       -webkit-animation: wiggle .2s ease-in-out infinite
+      -moz-animation: wiggle .2s ease-in-out infinite
+      animation: wiggle .2s ease-in-out infinite
   &.menu-toggle--x
-    transform: rotate(135deg)
     -webkit-transform: rotate(135deg)
+    moz-transform: rotate(135deg)
+    transform: rotate(135deg)
+    span:after
+      background: $color-theme-accent
     span:before
       background: $color-theme-accent
       border: none
@@ -53,74 +60,56 @@
       margin-left: 0
       margin-top: 0
       -webkit-transform: rotate(0)
+      -moz-transform: rotate(0)
+      transform: rotate(0)
 
 @-webkit-keyframes wiggle
   0%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
     transform: rotate(0)
-    -webkit-transform: rotate(0)    
+    
   50%
-    transform: rotate(7deg)
     -webkit-transform: rotate(7deg)
+    -moz-transform: rotate(7deg)
+    transform: rotate(7deg)
+    
   100%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
     transform: rotate(0)
-    -webkit-transform: rotate(0)   
 
-// http://codepen.io/vmathew/pen/KDxvi
-// .menu-toggle
-//   position: relative
-//   display: inline-block
-//   width: 2rem
-//   height: 2rem
-//   margin: 0
-//   position: fixed
-//   right: 1rem
-//   top: 1rem
-//   cursor: pointer
-//   z-index: 8000
-//   span
-//     margin: 0 auto
-//     position: relative
-//     top: .8rem
-//     -webkit-transition-duration: 0s
-//     -webkit-transition-delay: .2s
-//     &:before, &:after
-//       position: absolute
-//       content: ''
-//     width: 2rem
-//     height: .4rem
-//     background-color: $color-theme-accent
-//     display: block
-//     &:before, &:after
-//       width: 2rem
-//       height: .4rem
-//       background-color: $color-theme-accent
-//       display: block
-//     &:before
-//       margin-top: -.8rem
-//     &:after
-//       margin-top: .8rem
-//   // &:hover span
-//   &.menu-toggle--x span
-//     background-color: rgba(0, 0, 0, 0)
-//     -webkit-transition-delay: .2s
-//   span:before
-//     -webkit-transition-property: margin, -webkit-transform
-//     -webkit-transition-duration: .2s
-//     -webkit-transition-delay: .2s, 0
-//   // &:hover span:before
-//   &.menu-toggle--x span:before
-//     margin-top: 0
-//     -webkit-transform: rotate(45deg)
-//     -webkit-transition-delay: 0, .2s
-//   span:after
-//     -webkit-transition-property: margin, -webkit-transform
-//     -webkit-transition-duration: .2s
-//     -webkit-transition-delay: .2s, 0
-//   // &:hover span:after
-//   &.menu-toggle--x span:after
-//     margin-top: 0
-//     -webkit-transform: rotate(-45deg)
-//     -webkit-transition-delay: 0, .2s
+@-moz-keyframes wiggle
+  0%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
+    transform: rotate(0)
+    
+  50%
+    -webkit-transform: rotate(7deg)
+    -moz-transform: rotate(7deg)
+    transform: rotate(7deg)
+    
+  100%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
+    transform: rotate(0)    
+
+@keyframes wiggle
+  0%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
+    transform: rotate(0)
+    
+  50%
+    -webkit-transform: rotate(7deg)
+    -moz-transform: rotate(7deg)
+    transform: rotate(7deg)
+    
+  100%
+    -webkit-transform: rotate(0)
+    -moz-transform: rotate(0)
+    transform: rotate(0)
 
 $navbar-height: 4rem
 .navbar
@@ -130,6 +119,7 @@ $navbar-height: 4rem
   width: 100%
   background: $color-theme-base
   -webkit-transform: translate3d(0, -$navbar-height, 0)
+  -moz-transform: translate3d(0, -$navbar-height, 0)
   transform: translate3d(0, -$navbar-height, 0)
   transition: all .3s ease-in-out
   transition-delay: .1s
@@ -140,11 +130,13 @@ $navbar-height: 4rem
 .navbar-open 
   .navbar
     -webkit-transform: translate3d(0, 0, 0)
+    -moz-tranform: translate3d(0, 0, 0)
     transform: translate3d(0, 0, 0)
     transition-delay: 0
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, .5)
   .page-wrapper
     padding-top: $navbar-height
+    height: -webkit-calc(100vh - $navbar-height)
     height: calc(100vh - $navbar-height)
     transition-delay: .1s
 

@@ -18,4 +18,6 @@ window.Plotter = {};
 
 {% include plotter/scripts/ui.js %}
 
+{% include plotter/scripts/info-bar.js %}
+
 {% include plotter/scripts/tester.js %}

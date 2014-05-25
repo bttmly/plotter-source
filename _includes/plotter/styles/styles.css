@@ -1,12 +1,12 @@
 body {
   color: #333333;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5em; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   line-height: 1.25em;
   margin: 0;
   text-rendering: optimizeLegibility; }
@@ -91,7 +91,7 @@ input,
 label,
 select {
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1em; }
 
 label {
@@ -115,7 +115,7 @@ select[multiple=multiple] {
   border-radius: 0.1875em;
   border: 1px solid #dddddd;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1em;
   margin-bottom: 0.75em;
   padding: 0.5em 0.5em;
@@ -146,24 +146,14 @@ input[type="checkbox"], input[type="radio"] {
   margin-right: 0.375em; }
 
 input[type="file"] {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
   width: 100%; }
 
 select {
   width: auto;
   max-width: 100%;
   margin-bottom: 1.5em; }
-
-button,
-input[type="submit"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap; }
 
 table {
   border-collapse: collapse;
@@ -207,13 +197,11 @@ dl {
 
 body {
   color: #2c3e50;
-  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
-  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
 
 h1, h2, h3, h4, h5, h6, p, label, input, select {
   color: #2c3e50;
-  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
-  font-family: "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
+  font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif; }
 
 label {
   -webkit-user-select: none;
@@ -445,10 +433,16 @@ button,
   padding: 1em;
   box-shadow: 0 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2); }
 
-.chart-pane {
+.chart-wrapper {
   background: #eeeeee;
   height: 100%;
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column; }
+  .chart-wrapper .chart-pane {
+    flex: 1; }
+  .chart-wrapper .chart-info-bar {
+    height: 2rem; }
 
 .input-select-component {
   margin-top: 1rem; }
@@ -472,7 +466,7 @@ button,
     position: relative; }
     .menu-toggle span:before, .menu-toggle span:after {
       content: "";
-      background: #2ecc71;
+      background: #2c3e50;
       display: block;
       position: absolute;
       transition: all 0.3s ease; }
@@ -480,21 +474,28 @@ button,
       background: transparent;
       width: 1rem;
       height: 1rem;
-      border: 0.5rem solid #2ecc71;
+      border: 0.5rem solid #2c3e50;
       border-top: none;
       border-right: none;
       margin-top: 0.5rem;
       margin-left: 0.25rem;
-      -webkit-transform: rotate(-45deg); }
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
     .menu-toggle span:after {
       left: 0.75rem;
       width: 0.5rem;
       height: 2rem; }
   .menu-toggle:hover span {
-    -webkit-animation: wiggle 0.2s ease-in-out infinite; }
+    -webkit-animation: wiggle 0.2s ease-in-out infinite;
+    -moz-animation: wiggle 0.2s ease-in-out infinite;
+    animation: wiggle 0.2s ease-in-out infinite; }
   .menu-toggle.menu-toggle--x {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg); }
+    -webkit-transform: rotate(135deg);
+    moz-transform: rotate(135deg);
+    transform: rotate(135deg); }
+    .menu-toggle.menu-toggle--x span:after {
+      background: #2ecc71; }
     .menu-toggle.menu-toggle--x span:before {
       background: #2ecc71;
       border: none;
@@ -503,21 +504,55 @@ button,
       height: 0.5rem;
       margin-left: 0;
       margin-top: 0;
-      -webkit-transform: rotate(0); }
+      -webkit-transform: rotate(0);
+      -moz-transform: rotate(0);
+      transform: rotate(0); }
 
 @-webkit-keyframes wiggle {
   0% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0); }
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); }
 
   50% {
-    transform: rotate(7deg);
-    -webkit-transform: rotate(7deg); }
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    transform: rotate(7deg); }
 
   100% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0); } }
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); } }
+@-moz-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); }
 
+  50% {
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    transform: rotate(7deg); }
+
+  100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); } }
+@keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); }
+
+  50% {
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    transform: rotate(7deg); }
+
+  100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    transform: rotate(0); } }
 .navbar {
   z-index: 2000;
   position: fixed;
@@ -525,6 +560,7 @@ button,
   width: 100%;
   background: #2c3e50;
   -webkit-transform: translate3d(0, -4rem, 0);
+  -moz-transform: translate3d(0, -4rem, 0);
   transform: translate3d(0, -4rem, 0);
   transition: all 0.3s ease-in-out;
   transition-delay: 0.1s;
@@ -534,14 +570,37 @@ button,
 
 .navbar-open .navbar {
   -webkit-transform: translate3d(0, 0, 0);
+  -moz-tranform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   transition-delay: 0;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.5); }
 .navbar-open .page-wrapper {
   padding-top: 4rem;
+  height: -webkit-calc(100vh - $navbar-height);
   height: calc(100vh - $navbar-height);
   transition-delay: 0.1s; }
+
+.chart-info-bar {
+  color: white;
+  background: #2c3e50;
+  padding: 0.5rem;
+  line-height: 1rem; }
+  .chart-info-bar span {
+    display: inline-block;
+    margin-right: 0.5em; }
 
 path.domain {
   fill: transparent;
   stroke: black; }
+
+.scatterplot-point {
+  transition: all 0.2s ease-in-out;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  transform-origin: center center; }
+  .scatterplot-point:hover {
+    stroke: #666666;
+    stroke-width: 2px;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    transform: scale(2); }

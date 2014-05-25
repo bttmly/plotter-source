@@ -15,6 +15,8 @@ do ( App = window.Plotter ) ->
 
       App.scales = scales = makeScales( vars, data )
 
+      App.activeVars = vars
+
       # temp, set in config elsewhere.
       chartHeight  = App.settings.chart.height
       chartWidth   = App.settings.chart.width
@@ -28,6 +30,9 @@ do ( App = window.Plotter ) ->
     
       $( ".chart-pane" ).empty()
 
+      console.log $( ".chart-pane" ).height()
+      console.log $( ".chart-pane" ).width()
+
       scatterplot = d3.select ".chart-pane"
         .append "svg"
         .attr "id", "d3-scatterplot"
@@ -40,16 +45,29 @@ do ( App = window.Plotter ) ->
         .data( data )
         .enter()
         .append "circle"
+
         .attr "cx", ( d ) ->
           return scales.x( d[x] )
+
+        .attr "data-x", ( d ) ->
+          d[x]
+
         .attr "cy", ( d ) ->
           return scales.y( d[y] )
+
+        .attr "data-y", ( d ) ->
+          d[y]
+
         .attr "r", ( d ) ->
           if scales.r and d[r]
             return scales.r( d[r] )
           else
-            # 4px is fallback radius is no r var is defined
+            # 4px is fallback radius if no r var is defined
             return 4
+
+        .attr "data-r", ( d ) ->
+          if scales.r then d[r]
+
         .attr "fill", ( d ) ->
           base = posColors[ d.fantPos ]
           if scales.c and d[c]
@@ -65,6 +83,10 @@ do ( App = window.Plotter ) ->
                 .toCSS() 
           else
             return base
+
+        .attr "data-c", ( d ) ->
+          if scales.c then d[c]
+
         # id format "FirstName-LastName_Season_Position"
         .attr "id", ( d ) ->
           id = ""
@@ -72,6 +94,20 @@ do ( App = window.Plotter ) ->
           id += d.season + "_"
           id += d.fantPos
           return id
+
+        .attr "data-player-name", ( d ) ->
+          d.name
+
+        .attr "data-player-season", ( d ) ->
+          d.season
+
+        .attr "data-player-position", ( d ) ->
+          d.fantPos
+
+        .attr "data-player-team", ( d ) ->
+          d.team
+
+        .attr "class", "scatterplot-point"
 
         xAxis = d3.svg.axis()
           .scale scales.x
@@ -89,8 +125,8 @@ do ( App = window.Plotter ) ->
         
         scatterplot.append "text"
           .attr "class", "xAxis-label"
-          .attr "transform", "translate( #{chartPadding}, #{chartHeight + 30 - chartPadding * 2} )"
-          .text x
+          .attr "transform", "translate( #{chartPadding}, #{chartHeight - chartPadding / 4 } )"
+          .text Plotter.settings.abbrToStatRaw[ x ]
         
         scatterplot.append "g"
           .attr "class", "axis"
@@ -100,8 +136,8 @@ do ( App = window.Plotter ) ->
         
         scatterplot.append "text"
           .attr "class", "yAxis-label"
-          .attr "transform", "translate( #{chartPadding}, 0) rotate(-90)"
-          .text y 
+          .attr "transform", "translate( #{ chartPadding / 4 }, #{ chartHeight - chartPadding }) rotate(-90)"
+          .text Plotter.settings.abbrToStatRaw[ y ]
     
         # @s.els.chart = @s.els.chartWrapper.find "svg"
         # @s.els.dots = @s.els.chart.find "circle"
