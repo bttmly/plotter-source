@@ -15,7 +15,7 @@
 
 // CONTROLS
 //
-{% include bower_components/controls.js/controls.js %}
+{% include bower_components/controls/controls.js %}
 
 // UNDERDSCORE STRING
 //

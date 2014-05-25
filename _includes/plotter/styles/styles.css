@@ -202,6 +202,9 @@ dl {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+.text-center {
+  text-align: center; }
+
 body {
   color: #2c3e50;
   font-family: "Avenir Next", "Avenir", "Proxima Nova", "proxima-nova", "Helvetica Neue", "Helvetica", sans-serif;
@@ -538,3 +541,7 @@ button,
   padding-top: 4rem;
   height: calc(100vh - $navbar-height);
   transition-delay: 0.1s; }
+
+path.domain {
+  fill: transparent;
+  stroke: black; }

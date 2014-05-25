@@ -1,8 +1,6 @@
 Plotter.util = do ->
 
-   typeCheck : (obj) ->
-    if obj == undefined or obj == null
-      return String( obj )
+   typeCheck : do ->
     classToType =
       '[object Boolean]': 'boolean'
       '[object Number]': 'number'
@@ -12,4 +10,7 @@ Plotter.util = do ->
       '[object Date]': 'date'
       '[object RegExp]': 'regexp'
       '[object Object]': 'object'
-    return classToType[ Object.prototype.toString.call( obj ) ]
+    ( obj ) ->
+      if obj == undefined or obj == null
+        return String( obj )
+      classToType[ Object.prototype.toString.call( obj ) ]

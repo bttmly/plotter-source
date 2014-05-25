@@ -13,7 +13,7 @@ do ( App = window.Plotter ) ->
   App.on "requestRender", ( event, data ) ->
     sortData = data
 
-    sortData.seasons = sortData.seasons.map( Number )
+    seasons = sortData.seasons.map( Number )
     ppProp = if sortData.ppVal[0].length is 2 then "fantPos" else "name"
 
     sortArr = [
@@ -21,7 +21,7 @@ do ( App = window.Plotter ) ->
       vals: sortData.ppVal
     ,
       prop: "season"
-      vals: sortData.seasons
+      vals: seasons
     ]
 
     App.ChartDrawer( sortData.vars, App.DataSorter.multiWhereArray( sortArr ) )

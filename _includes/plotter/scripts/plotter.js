@@ -17,3 +17,5 @@ window.Plotter = {};
 {% include plotter/scripts/chart-drawer.js %}
 
 {% include plotter/scripts/ui.js %}
+
+{% include plotter/scripts/tester.js %}

@@ -1,0 +1,14 @@
+{
+  "name": "controls",
+  "homepage": "https://github.com/nickb1080/controls",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "7c4a233a95dc6975d9eaf2d0e08fe1605a751beb"
+  },
+  "_source": "git://github.com/nickb1080/controls.git",
+  "_target": "0.0.1",
+  "_originalSource": "controls"
+}

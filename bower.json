@@ -29,6 +29,6 @@
     "d3": "~3.4.4",
     "underscore.string": "~2.3.3",
     "collection.js": "https://github.com/nickb1080/collection.js.git",
-    "controls.js": "https://github.com/nickb1080/controls.js.git"
+    "controls": "0.0.1"
   }
 }
