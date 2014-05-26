@@ -24,12 +24,17 @@
 // COLOR.JS
 //
 //
-{% include bower_components/color-js/color.js %}
+{% include bower_components/color-js/color.min.js %}
 var Color = net.brehaut.Color;
+delete net.brehaut;
 
 // D3
 // 
 {% include bower_components/d3/d3.min.js %}
+
+// EventEmitter
+//
+{% include bower_components/eventEmitter/EventEmitter.min.js %}
 
 // CHOSEN
 //

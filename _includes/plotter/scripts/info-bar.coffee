@@ -23,7 +23,9 @@ do ( App = window.Plotter ) ->
     infoBar.empty().html( markup )
 
   $( "body" ).on "mouseenter", ".scatterplot-point", ( evt ) ->
-    $( this ).appendTo( dotHolder )
+    $( this ).data "real-r", $( this ).data( "r" )
+    console.log $( this ).data( "real-r" )
     renderInfo( this )
   
-  $()
+  $( "body" ).on "mouseleave", ".scatterplot-point", ( evt ) ->
+    infoBar.empty()

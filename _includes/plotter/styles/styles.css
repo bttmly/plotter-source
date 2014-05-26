@@ -604,3 +604,9 @@ path.domain {
     -webkit-transform: scale(2);
     -moz-transform: scale(2);
     transform: scale(2); }
+
+.chart-instructions {
+  text-align: center;
+  padding-top: 6rem;
+  color: white;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); }

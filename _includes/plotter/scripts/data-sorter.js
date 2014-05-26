@@ -5,11 +5,13 @@
     return new Collection(arr);
   };
   App.DataSorter = void 0;
-  App.on("dataSetLoaded", function(event, data) {
+  App.on("dataSetLoaded", function(data) {
+    console.log(data);
     return App.DataSorter = __(data);
   });
-  return App.on("requestRender", function(event, data) {
+  return App.on("requestRender", function(data) {
     var ppProp, seasons, sortArr, sortData;
+    console.log(data);
     sortData = data;
     seasons = sortData.seasons.map(Number);
     ppProp = sortData.ppVal[0].length === 2 ? "fantPos" : "name";

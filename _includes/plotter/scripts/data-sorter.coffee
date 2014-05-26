@@ -7,10 +7,12 @@ do ( App = window.Plotter ) ->
 
   App.DataSorter = undefined
 
-  App.on "dataSetLoaded", ( event, data ) ->
+  App.on "dataSetLoaded", ( data ) ->
+    console.log data
     App.DataSorter = __( data )
 
-  App.on "requestRender", ( event, data ) ->
+  App.on "requestRender", ( data ) ->
+    console.log data
     sortData = data
 
     seasons = sortData.seasons.map( Number )

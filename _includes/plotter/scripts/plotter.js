@@ -1,3 +1,4 @@
+// we can encapsulate this eventually
 window.Plotter = {};
 
 {% include plotter/scripts/settings.js %}
@@ -19,5 +20,7 @@ window.Plotter = {};
 {% include plotter/scripts/ui.js %}
 
 {% include plotter/scripts/info-bar.js %}
+
+{% include plotter/scripts/console-save.js %}
 
 {% include plotter/scripts/tester.js %}

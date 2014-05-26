@@ -32,14 +32,10 @@
         valid = false;
       }
       console.log(ret);
-      if (!valid) {
-        return valid;
-      } else {
-        return ret;
-      }
+      return ret;
     };
     renderButton.on("click", function(event) {
-      return App.trigger("requestRender", Plotter.controls.formattedValues());
+      return App.trigger("requestRender", [Plotter.controls.formattedValues()]);
     });
     highlightButton.disabled(true);
     $("#input-group--players").hide();

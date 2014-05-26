@@ -18,8 +18,11 @@
     return infoBar.empty().html(markup);
   };
   $("body").on("mouseenter", ".scatterplot-point", function(evt) {
-    $(this).appendTo(dotHolder);
+    $(this).data("real-r", $(this).data("r"));
+    console.log($(this).data("real-r"));
     return renderInfo(this);
   });
-  return $();
+  return $("body").on("mouseleave", ".scatterplot-point", function(evt) {
+    return infoBar.empty();
+  });
 })(window.Plotter);

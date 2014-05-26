@@ -45,7 +45,7 @@ do ( App = window.Plotter ) ->
 
       console.log( ret )
 
-      return if not valid then valid else ret
+      return ret
 
 
 
@@ -54,7 +54,7 @@ do ( App = window.Plotter ) ->
     # UI prep; disable buttons
     # need to refactor this out of this file
     renderButton.on "click", ( event ) ->
-      App.trigger "requestRender", Plotter.controls.formattedValues()
+      App.trigger( "requestRender", [Plotter.controls.formattedValues()] )
 
     # renderButton.disabled( true )
     highlightButton.disabled( true )
